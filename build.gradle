@@ -6,7 +6,7 @@ group 'org.example'
 version '1.0'
 
 ext {
-    gdxVersion = "1.9.8"
+    gdxVersion = "1.10.0"
 }
 
 repositories {

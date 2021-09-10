@@ -2,7 +2,6 @@ package engine.gdx.base.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import engine.gdx.base.managers.BaseGameManager;
 import engine.gdx.base.resources.ResourceManager;
 import engine.gdx.base.screens.BaseScreen;
 
@@ -14,7 +13,6 @@ public abstract class GameBase extends Game {
     private BaseScreen screenToLoad;
 
     public GameBase() {
-        BaseGameManager.getInstance().setGame(this);
         gameSpeed = 1f;
     }
 

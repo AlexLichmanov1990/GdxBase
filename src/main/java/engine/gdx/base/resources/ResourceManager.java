@@ -41,6 +41,14 @@ public class ResourceManager extends AssetManager {
         }
     }
 
+    public synchronized <T> void loadSync(String fileName, Class<T> type) {
+        loadSync(fileName, type, null);
+    }
+    public synchronized <T> void loadSync(String fileName, Class<T> type, AssetLoaderParameters<T> parameter) {
+        super.load(fileName, type, parameter);
+        finishLoadingAsset(fileName);
+    }
+
     public void load(BaseScreen screen) {
         if (screen == null) return;
         ArrayList<Resource<?>> resources = screen.getResources();

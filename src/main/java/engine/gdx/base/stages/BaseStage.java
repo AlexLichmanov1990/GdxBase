@@ -12,7 +12,7 @@ import engine.gdx.base.stages.viewports.AspectViewport;
 
 public abstract class BaseStage extends Stage {
 
-    private static final int F12 = 255;
+//    private static final int F12 = 255;
 
     private static boolean debug = false;
     protected LoadStrategy next;
@@ -31,7 +31,7 @@ public abstract class BaseStage extends Stage {
         this.addListener(new InputListener() {
             @Override
             public boolean keyTyped(InputEvent event, char character) {
-                if (event.getKeyCode() == F12) {
+                if (event.getKeyCode() == Input.Keys.F12) {
                     setDebug();
                 }
                 return true;

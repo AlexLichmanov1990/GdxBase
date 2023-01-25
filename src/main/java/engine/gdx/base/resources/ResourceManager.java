@@ -1,5 +1,6 @@
 package engine.gdx.base.resources;
 
+import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetLoaderParameters;
 import com.badlogic.gdx.assets.AssetManager;
 import engine.gdx.base.screens.BaseScreen;
@@ -41,12 +42,22 @@ public class ResourceManager extends AssetManager {
         }
     }
 
+    public synchronized void loadSync(AssetDescriptor desc) {
+        loadSync(desc.fileName, desc.type, desc.params);
+    }
+
     public synchronized <T> void loadSync(String fileName, Class<T> type) {
         loadSync(fileName, type, null);
     }
+
     public synchronized <T> void loadSync(String fileName, Class<T> type, AssetLoaderParameters<T> parameter) {
         super.load(fileName, type, parameter);
-        finishLoadingAsset(fileName);
+        finishLoading();
+    }
+
+    @Override
+    public synchronized void load(AssetDescriptor desc) {
+        super.load(desc);
     }
 
     public void load(BaseScreen screen) {
